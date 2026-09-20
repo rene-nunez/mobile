@@ -2,6 +2,18 @@ body {
   font-family: "Roboto", Arial, sans-serif;
 }
 
+.ad-top {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.ad-top img {
+  max-width: 100%;
+  height: auto;
+  width: 60%;
+}
+
 .list-unstyled a:hover {
   text-decoration: underline !important;
 }
