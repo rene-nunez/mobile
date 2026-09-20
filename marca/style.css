@@ -119,3 +119,99 @@ body {
 .social-icon:last-child {
   margin-right: 0;
 }
+
+.agenda-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 44px;
+  color: #221f1f;
+  margin-right: 30px;
+}
+
+.agenda-item {
+  width: 240px;
+}
+
+.agenda-link {
+  width: 100%;
+  height: 35px;
+  background-color: #e2e2e2;
+  color: #000;
+}
+
+.agenda-tag {
+  width: 35%;
+  height: 35px;
+  padding: 3px 5px;
+  background-color: #c00;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.agenda-tag-title {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.agenda-time {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.agenda-body {
+  width: 65%;
+  padding: 3px 3px 3px 10px;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000;
+  overflow: hidden;
+}
+
+.agenda-category {
+  font-size: 10px;
+  line-height: 13px;
+  font-weight: 400;
+}
+
+.agenda-headline {
+  max-width: 142px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agenda-headline a {
+  color: #000;
+  font-size: 12px;
+  line-height: 13px;
+  font-weight: 700;
+}
+
+.agenda-link:hover .agenda-tag {
+  background-color: #970000;
+}
+
+.agenda-link:hover .agenda-body {
+  background-color: #ccc;
+}
+
+.agenda-toggle {
+  font-size: 14px;
+  color: #000;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.agenda-arrow {
+  transition: transform .3s;
+}
+
+.agenda-toggle[aria-expanded="true"] .agenda-arrow {
+  transform: rotate(180deg);
+}

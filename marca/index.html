@@ -10,6 +10,55 @@
   </head>
   <body>
     <div class="container-fluid p-0">
+      <section class="marca-pad pt-4">
+        <div class="agenda-bar d-flex align-items-center flex-wrap">
+          <h2 class="agenda-title mb-0">Agenda</h2>
+          <div class="d-flex flex-wrap gap-2 flex-grow-1">
+            <article class="agenda-item">
+              <div class="agenda-link d-flex">
+                <div class="agenda-tag">
+                  <span class="agenda-tag-title">En directo</span>
+                </div>
+                <div class="agenda-body">
+                  <h3 class="agenda-category mb-0">Todas las noticias</h3>
+                  <p class="agenda-headline mb-0"><a href="#" class="text-decoration-none">Última hora</a></p>
+                </div>
+              </div>
+            </article>
+            <article class="agenda-item">
+              <div class="agenda-link d-flex">
+                <div class="agenda-tag">
+                  <span class="agenda-tag-title">Lo mejor del día</span>
+                </div>
+                <div class="agenda-body">
+                  <h3 class="agenda-category mb-0">Agenda</h3>
+                  <p class="agenda-headline mb-0"><a href="#" class="text-decoration-none">Jueves 23</a></p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <button type="button" class="agenda-toggle border-0 bg-transparent p-0 d-inline-flex align-items-center gap-1" data-bs-toggle="collapse" data-bs-target="#agendaMore" aria-expanded="false" aria-controls="agendaMore">
+            Ver más directos
+            <svg class="agenda-arrow" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>
+          </button>
+        </div>
+        <div class="collapse" id="agendaMore">
+          <div class="d-flex flex-wrap gap-2 pt-2">
+            <article class="agenda-item">
+              <div class="agenda-link d-flex">
+                <div class="agenda-tag">
+                  <span class="agenda-tag-title">En directo</span>
+                  <time class="agenda-time">19:00</time>
+                </div>
+                <div class="agenda-body">
+                  <h3 class="agenda-category mb-0">Fútbol / Europa League</h3>
+                  <p class="agenda-headline mb-0"><a href="#" class="text-decoration-none">Sigma Olomouc-Sevilla</a></p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
       <section class="marca-pad py-4">
         <div class="row g-4">
           <div class="col-12 col-lg-8 d-flex">
