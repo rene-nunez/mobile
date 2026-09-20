@@ -78,11 +78,15 @@ body {
 }
 
 .comment-link:hover .num-comments {
-  background-color: #d73939;
+  background-color: #c00;
 }
 
 .comment-link:hover .num-comments::before {
-  border-color: transparent #d73939 transparent transparent;
+  border-color: transparent #c00 transparent transparent;
+}
+
+.marca-comment-number {
+  color: #c00;
 }
 
 .view-video {
