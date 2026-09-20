@@ -1,0 +1,117 @@
+body {
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.list-unstyled a:hover {
+  text-decoration: underline !important;
+}
+
+.marca-pad {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.footer-legal a {
+  color: #000000;
+}
+
+.footer-legal a:hover {
+  text-decoration: underline;
+}
+
+.mod-title a:hover {
+  color: #888888 !important;
+}
+
+.hero-title a:hover {
+  color: #6f6f6f !important;
+}
+
+.author {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-style: normal;
+  color: #6d6d6d;
+}
+
+.article-footer {
+  border-bottom: 1px solid #a3a3a3;
+  padding-bottom: 5px;
+}
+
+.num-comments {
+  width: 15px;
+  height: 10px;
+  border-radius: 10%;
+  background-color: #a3a3a3;
+  margin-right: 5px;
+  display: inline-block;
+  position: relative;
+}
+
+.num-comments::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: -3px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 3px 10px 5px 0;
+  border-color: transparent #a3a3a3 transparent transparent;
+  transform: rotateZ(-83deg);
+}
+
+.text-marca {
+  color: #3498d8;
+}
+
+.thumb {
+  width: 40%;
+  position: relative;
+}
+
+.comment-link,
+.comment-link:hover,
+.comment-link:visited {
+  color: inherit;
+}
+
+.comment-link:hover .num-comments {
+  background-color: #c00;
+}
+
+.comment-link:hover .num-comments::before {
+  border-color: transparent #c00 transparent transparent;
+}
+
+.view-video {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background-image: url("assets/play.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 40px;
+  z-index: 1;
+  cursor: pointer;
+  transition: background-image .3s;
+}
+
+.view-video:hover {
+  background-image: url("assets/play-hover.png");
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: .75rem;
+}
+
+.social-icon:last-child {
+  margin-right: 0;
+}

@@ -4,19 +4,94 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MARCA - Diario online líder en información deportiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <style>
-      .list-unstyled a:hover {
-        text-decoration: underline !important;
-      }
-      .footer-legal a:hover {
-        text-decoration: underline;
-      }
-    </style>
+    <link href="style.css" rel="stylesheet">
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row text-white" style="background-color: #222222; padding-left: 6rem; padding-right: 6rem;">
+      <section class="container py-4">
+        <div class="row g-4">
+          <div class="col-12 col-lg-8 d-flex">
+            <article itemscope itemtype="http://schema.org/NewsArticle" class="w-100 d-flex flex-column">
+              <div class="position-relative flex-grow-1">
+                <a href="#" class="d-block h-100"><img src="assets/europe-soccer-players.jpg" itemprop="url" alt="¿Cuál es el mejor once para reinar en Europa?" class="w-100 h-100 object-fit-cover"></a>
+                <span class="position-absolute top-0 start-0 text-white fw-bold px-2 py-1" style="background-color: #3498d8; font-size: 13px;">CHAMPIONS</span>
+                <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white" style="background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,0));">
+                  <p class="mb-1 text-white" style="font-size: 16px; line-height: 19px;" itemprop="alternativeHeadline">Descubre a los ocho grandes favoritos</p>
+                  <h2 class="fw-bold mb-0" style="font-size: 45px;" itemprop="headline"><a href="#" itemprop="url" class="text-white text-decoration-none">¿Cuál es el mejor once para reinar en Europa?</a></h2>
+                </div>
+              </div>
+              <footer class="article-footer d-flex align-items-center flex-wrap mt-auto">
+                <address class="author mb-0 me-2" itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Rubén Jiménez</span></address>
+                <address class="author mb-0 me-2" itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">Enrique Medina</span></address>
+                <a href="#" class="comment-link ms-auto d-flex align-items-center text-decoration-none">
+                  <span class="num-comments"></span>
+                  <span class="text-danger fw-bold small">478</span>
+                  <span class="visually-hidden"> comentarios</span>
+                </a>
+              </footer>
+            </article>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="d-flex flex-column gap-3">
+              <article itemscope itemtype="http://schema.org/NewsArticle">
+                <div class="d-flex gap-3">
+                  <a href="#" class="flex-shrink-0 d-block thumb"><img src="assets/laliga-santander.jpg" alt="Amenaza de huelga" class="w-100"><span class="view-video"></span></a>
+                  <div class="flex-grow-1">
+                    <span class="fw-bold small text-marca">LALIGA SANTANDER</span>
+                    <h2 class="h6 fw-bold mb-0 mod-title" itemprop="headline"><a href="#" itemprop="url" class="text-decoration-none text-dark">Amenaza de huelga</a></h2>
+                  </div>
+                </div>
+                <footer class="article-footer d-flex align-items-center mt-2 pt-2">
+                  <address class="author mb-0 me-2" itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">A. Mogollo</span></address>
+                  <address class="author mb-0" itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">E. Borda</span></address>
+                  <a href="#" class="comment-link ms-auto d-flex align-items-center text-decoration-none">
+                    <span class="num-comments"></span>
+                    <span class="text-danger fw-bold small">307</span>
+                    <span class="visually-hidden"> comentarios</span>
+                  </a>
+                </footer>
+              </article>
+              <article itemscope itemtype="http://schema.org/NewsArticle">
+                <div class="d-flex gap-3">
+                  <a href="#" class="flex-shrink-0 d-block thumb"><img src="assets/fichajes.jpg" alt="Mercado: el 'recambio' de Filipe Luis puede llegar de Alemania" class="w-100"></a>
+                  <div class="flex-grow-1">
+                    <span class="fw-bold small text-marca">FICHAJES</span>
+                    <h2 class="h6 fw-bold mb-0 mod-title" itemprop="headline"><a href="#" itemprop="url" class="text-decoration-none text-dark">Mercado: el 'recambio' de Filipe Luis puede llegar de Alemania</a></h2>
+                  </div>
+                </div>
+                <footer class="article-footer d-flex align-items-center justify-content-end mt-2 pt-2">
+                  <a href="#" class="comment-link d-flex align-items-center text-decoration-none">
+                    <span class="num-comments"></span>
+                    <span class="text-danger fw-bold small">92</span>
+                    <span class="visually-hidden"> comentarios</span>
+                  </a>
+                </footer>
+              </article>
+              <article itemscope itemtype="http://schema.org/NewsArticle">
+                <div class="d-flex gap-3">
+                  <a href="#" class="flex-shrink-0 d-block thumb"><img src="assets/real-madrid.jpg" alt="Champions y Liga para el portero titular" class="w-100"></a>
+                  <div class="flex-grow-1">
+                    <span class="fw-bold small text-marca">REAL MADRID</span>
+                    <h2 class="h6 fw-bold mb-0 mod-title" itemprop="headline"><a href="#" itemprop="url" class="text-decoration-none text-dark">Champions y Liga para el portero titular</a></h2>
+                  </div>
+                </div>
+                <footer class="article-footer d-flex align-items-center mt-2 pt-2">
+                  <address class="author mb-0" itemprop="author" itemtype="http://schema.org/Person"><span itemprop="name">José Félix Díaz</span></address>
+                  <a href="#" class="comment-link ms-auto d-flex align-items-center text-decoration-none">
+                    <span class="num-comments"></span>
+                    <span class="text-danger fw-bold small">206</span>
+                    <span class="visually-hidden"> comentarios</span>
+                  </a>
+                </footer>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row text-white marca-pad" style="background-color: #222222;">
         <div class="text-center border-bottom border-white">
           <p class="pt-3 mb-2 fw-bold">Otras webs de Unidad Editorial</p>
         </div>
@@ -67,32 +142,32 @@
           </ul>
         </div>
       </div>
-      <div style="background-color: #eeeeee; padding-left: 6rem; padding-right: 6rem;">
+      <div class="marca-pad" style="background-color: #eeeeee;">
         <div class="text-center small pt-4 pb-5">
           <p class="text-black fw-bold mb-2">© Agosto 2018 Unidad Editorial Información Deportiva, S.L.U. Todos los derechos reservados.</p>
           <ul class="list-unstyled mb-4 footer-legal d-flex flex-wrap justify-content-center column-gap-3 row-gap-1">
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Términos y condiciones de uso</a></li>
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Política de privacidad</a></li>
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Política de cookies</a></li>
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Certificado por OJD</a></li>
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Contacto</a></li>
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Publicidad</a></li>
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Ayuda</a></li>
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Nuestro equipo</a></li>
-            <li><a href="#" class="text-decoration-none" style="color: #000000;">Venta de contenidos</a></li>
+            <li><a href="#" class="text-decoration-none">Términos y condiciones de uso</a></li>
+            <li><a href="#" class="text-decoration-none">Política de privacidad</a></li>
+            <li><a href="#" class="text-decoration-none">Política de cookies</a></li>
+            <li><a href="#" class="text-decoration-none">Certificado por OJD</a></li>
+            <li><a href="#" class="text-decoration-none">Contacto</a></li>
+            <li><a href="#" class="text-decoration-none">Publicidad</a></li>
+            <li><a href="#" class="text-decoration-none">Ayuda</a></li>
+            <li><a href="#" class="text-decoration-none">Nuestro equipo</a></li>
+            <li><a href="#" class="text-decoration-none">Venta de contenidos</a></li>
           </ul>
           <p class="fw-bold mb-2">Síguenos en</p>
           <div class="d-inline-flex">
-            <a href="#" class="d-flex align-items-center justify-content-center me-3" style="width: 36px; height: 36px; background-color: #44619d; border-radius: 50%;">
+            <a href="#" class="social-icon" style="background-color: #44619d;">
               <svg width="34" height="34" viewBox="-1 -1 27 27" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" d="M13.094 18.575v-5.647h1.896l.283-2.198h-2.18V9.324c0-.636.176-1.07 1.09-1.07h1.168V6.28a15.312 15.312 0 0 0-1.698-.085c-1.682 0-2.83 1.03-2.83 2.912v1.624H8.92v2.2h1.902v5.64h2.272z"></path></svg>
             </a>
-            <a href="#" class="d-flex align-items-center justify-content-center me-3" style="width: 36px; height: 36px; background-color: #03a3d8; border-radius: 50%;">
+            <a href="#" class="social-icon" style="background-color: #03a3d8;">
               <svg width="30" height="30" viewBox="-1 -1 27 27" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" d="M19.084 9.046c.007.127.01.26.01.39.027 3.993-2.975 8.613-8.533 8.65a8.536 8.536 0 0 1-4.636-1.323 6.11 6.11 0 0 0 4.464-1.281 3.029 3.029 0 0 1-2.838-2.078 3.137 3.137 0 0 0 1.38-.06 3.004 3.004 0 0 1-2.43-2.947v-.036c.375.222.86.354 1.355.366a3.027 3.027 0 0 1-.973-4.024 8.578 8.578 0 0 0 6.244 3.113 3.016 3.016 0 0 1 2.914-3.729 3.018 3.018 0 0 1 2.212.937 5.987 5.987 0 0 0 1.914-.747 3.03 3.03 0 0 1-1.32 1.68 5.831 5.831 0 0 0 1.73-.486c-.4.608-.904 1.14-1.492 1.574z"></path></svg>
             </a>
-            <a href="#" class="d-flex align-items-center justify-content-center me-3" style="width: 36px; height: 36px; background-color: #DC4A38; border-radius: 50%;">
+            <a href="#" class="social-icon" style="background-color: #dc4a38;">
               <svg viewBox="26 26 56 94" width="11" height="18" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="#FFFFFF" d="M70.479,71.845l-3.983-3.093c-1.213-1.006-2.872-2.334-2.872-4.765c0-2.441,1.659-3.993,3.099-5.43c4.64-3.652,9.276-7.539,9.276-15.73c0-8.423-5.3-12.854-7.84-14.956h6.849l7.189-4.517H60.418c-5.976,0-14.588,1.414-20.893,6.619c-4.752,4.1-7.07,9.753-7.07,14.842c0,8.639,6.633,17.396,18.346,17.396c1.106,0,2.316-0.109,3.534-0.222c-0.547,1.331-1.1,2.439-1.1,4.32c0,3.431,1.763,5.535,3.317,7.528c-4.977,0.342-14.268,0.893-21.117,5.103c-6.523,3.879-8.508,9.525-8.508,13.51c0,8.202,7.731,15.842,23.762,15.842c19.01,0,29.074-10.519,29.074-20.932C79.764,79.709,75.344,75.943,70.479,71.845z M56,59.107c-9.51,0-13.818-12.294-13.818-19.712c0-2.888,0.547-5.87,2.428-8.199c1.773-2.218,4.861-3.657,7.744-3.657c9.168,0,13.923,12.404,13.923,20.382c0,1.996-0.22,5.533-2.762,8.09C61.737,57.785,58.762,59.107,56,59.107z M56.109,103.65c-11.826,0-19.452-5.657-19.452-13.523c0-7.864,7.071-10.524,9.504-11.405c4.64-1.561,10.611-1.779,11.607-1.779c1.105,0,1.658,0,2.538,0.111c8.407,5.983,12.056,8.965,12.056,14.629C72.362,98.542,66.723,103.65,56.109,103.65z"></path></svg>
             </a>
-            <a href="#" class="d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; background-color: #d96d00; border-radius: 50%;">
+            <a href="#" class="social-icon" style="background-color: #d96d00;">
               <svg viewBox="0 0 448 512" width="18" height="21" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="#FFFFFF" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg>
             </a>
           </div>
