@@ -70,26 +70,30 @@
         </nav>
         <div class="teams-bar" aria-label="Equipos de Primera División">
           <div class="teams-bar__inner">
-            <a href="equipos/deportivo-alaves.html" class="team team--0" aria-label="Deportivo Alavés"></a>
-            <a href="equipos/athletic-club.html" class="team team--1" aria-label="Athletic Club"></a>
-            <a href="equipos/atletico-de-madrid.html" class="team team--2" aria-label="Atlético de Madrid"></a>
-            <a href="equipos/barcelona.html" class="team team--3" aria-label="Barcelona"></a>
-            <a href="equipos/real-betis.html" class="team team--4" aria-label="Real Betis"></a>
-            <a href="equipos/celta-de-vigo.html" class="team team--5" aria-label="Celta de Vigo"></a>
-            <a href="equipos/eibar.html" class="team team--6" aria-label="Eibar"></a>
-            <a href="equipos/espanyol.html" class="team team--7" aria-label="Espanyol"></a>
-            <a href="equipos/getafe.html" class="team team--8" aria-label="Getafe"></a>
-            <a href="equipos/girona.html" class="team team--9" aria-label="Girona"></a>
-            <a href="equipos/huesca.html" class="team team--10" aria-label="Huesca"></a>
-            <a href="equipos/leganes.html" class="team team--11" aria-label="Leganés"></a>
-            <a href="equipos/levante.html" class="team team--12" aria-label="Levante"></a>
-            <a href="equipos/rayo-vallecano.html" class="team team--13" aria-label="Rayo Vallecano"></a>
-            <a href="equipos/real-madrid.html" class="team team--14" aria-label="Real Madrid"></a>
-            <a href="equipos/real-sociedad.html" class="team team--15" aria-label="Real Sociedad"></a>
-            <a href="equipos/sevilla.html" class="team team--16" aria-label="Sevilla"></a>
-            <a href="equipos/valencia.html" class="team team--17" aria-label="Valencia"></a>
-            <a href="equipos/valladolid.html" class="team team--18" aria-label="Valladolid"></a>
-            <a href="equipos/villarreal.html" class="team team--19" aria-label="Villarreal"></a>
+            <div class="teams-carousel" aria-label="Carrusel de equipos de Primera División">
+              <div class="teams-carousel__track">
+              <a href="equipos/deportivo-alaves.html" class="team team--0" aria-label="Deportivo Alavés"></a>
+              <a href="equipos/athletic-club.html" class="team team--1" aria-label="Athletic Club"></a>
+              <a href="equipos/atletico-de-madrid.html" class="team team--2" aria-label="Atlético de Madrid"></a>
+              <a href="equipos/barcelona.html" class="team team--3" aria-label="Barcelona"></a>
+              <a href="equipos/real-betis.html" class="team team--4" aria-label="Real Betis"></a>
+              <a href="equipos/celta-de-vigo.html" class="team team--5" aria-label="Celta de Vigo"></a>
+              <a href="equipos/eibar.html" class="team team--6" aria-label="Eibar"></a>
+              <a href="equipos/espanyol.html" class="team team--7" aria-label="Espanyol"></a>
+              <a href="equipos/getafe.html" class="team team--8" aria-label="Getafe"></a>
+              <a href="equipos/girona.html" class="team team--9" aria-label="Girona"></a>
+              <a href="equipos/huesca.html" class="team team--10" aria-label="Huesca"></a>
+              <a href="equipos/leganes.html" class="team team--11" aria-label="Leganés"></a>
+              <a href="equipos/levante.html" class="team team--12" aria-label="Levante"></a>
+              <a href="equipos/rayo-vallecano.html" class="team team--13" aria-label="Rayo Vallecano"></a>
+              <a href="equipos/real-madrid.html" class="team team--14" aria-label="Real Madrid"></a>
+              <a href="equipos/real-sociedad.html" class="team team--15" aria-label="Real Sociedad"></a>
+              <a href="equipos/sevilla.html" class="team team--16" aria-label="Sevilla"></a>
+              <a href="equipos/valencia.html" class="team team--17" aria-label="Valencia"></a>
+              <a href="equipos/valladolid.html" class="team team--18" aria-label="Valladolid"></a>
+              <a href="equipos/villarreal.html" class="team team--19" aria-label="Villarreal"></a>
+              </div>
+            </div>
             <a href="#" class="teams-bar__betting" aria-label="Marca Apuestas"><img src="assets/logo-marca-apuestas.png" alt="MARCAapuestas.es"></a>
           </div>
         </div>
@@ -307,6 +311,86 @@
         document.addEventListener('keydown', event => {
           if (event.key === 'Escape') closeMenus();
         });
+      })();
+    </script>
+    <script>
+      (() => {
+        const carousel = document.querySelector('.teams-carousel');
+        const track = carousel?.querySelector('.teams-carousel__track');
+        if (!carousel || !track) return;
+
+        const originals = [...track.children];
+        originals.forEach(team => {
+          const copy = team.cloneNode(true);
+          copy.setAttribute('aria-hidden', 'true');
+          copy.tabIndex = -1;
+          track.append(copy);
+        });
+
+        let offset = 0;
+        let previousTime = performance.now();
+        let dragging = false;
+        let startX = 0;
+        let startOffset = 0;
+        let didDrag = false;
+        const speed = 12;
+
+        const cycleWidth = () => track.children[originals.length]?.offsetLeft || 0;
+        const normalize = () => {
+          const width = cycleWidth();
+          if (!width) return;
+          while (offset <= -width) offset += width;
+          while (offset > 0) offset -= width;
+        };
+        const render = () => { track.style.transform = `translate3d(${offset}px, 0, 0)`; };
+
+        const tick = time => {
+          if (!dragging && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            offset -= speed * ((time - previousTime) / 1000);
+            normalize();
+            render();
+          }
+          previousTime = time;
+          requestAnimationFrame(tick);
+        };
+
+        carousel.addEventListener('pointerdown', event => {
+          dragging = true;
+          didDrag = false;
+          startX = event.clientX;
+          startOffset = offset;
+          carousel.classList.add('is-dragging');
+          carousel.setPointerCapture(event.pointerId);
+        });
+
+        carousel.addEventListener('pointermove', event => {
+          if (!dragging) return;
+          const distance = event.clientX - startX;
+          if (Math.abs(distance) > 4) didDrag = true;
+          offset = startOffset + distance;
+          normalize();
+          render();
+        });
+
+        const stopDragging = event => {
+          if (!dragging) return;
+          dragging = false;
+          carousel.classList.remove('is-dragging');
+          if (carousel.hasPointerCapture(event.pointerId)) carousel.releasePointerCapture(event.pointerId);
+          previousTime = performance.now();
+        };
+
+        carousel.addEventListener('pointerup', stopDragging);
+        carousel.addEventListener('pointercancel', stopDragging);
+        carousel.addEventListener('click', event => {
+          if (didDrag) {
+            event.preventDefault();
+            event.stopPropagation();
+            didDrag = false;
+          }
+        }, true);
+
+        requestAnimationFrame(tick);
       })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
