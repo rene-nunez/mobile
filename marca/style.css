@@ -35,7 +35,7 @@ body {
 }
 
 .article-footer {
-  border-bottom: 1px solid #a3a3a3;
+  border-bottom: 1px solid #bababa;
   padding-bottom: 5px;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 .text-marca {
-  color: #3498d8;
+  color: #6ab3e2;
 }
 
 .thumb {
@@ -78,11 +78,11 @@ body {
 }
 
 .comment-link:hover .num-comments {
-  background-color: #c00;
+  background-color: #d73939;
 }
 
 .comment-link:hover .num-comments::before {
-  border-color: transparent #c00 transparent transparent;
+  border-color: transparent #d73939 transparent transparent;
 }
 
 .view-video {
