@@ -29,17 +29,14 @@ body {
   font-size: 13px;
 }
 
-.seo-links {
-  list-style: none;
+.kicker {
+  background-color: #3498d8;
+  font-size: 13px;
 }
 
 .seo-link {
   color: #333333;
   text-decoration: none;
-}
-
-.seo-link:hover {
-  text-decoration: underline !important;
 }
 
 .list-unstyled a:hover {
@@ -53,10 +50,6 @@ body {
 
 .footer-legal a {
   color: #000000;
-}
-
-.footer-legal a:hover {
-  text-decoration: underline;
 }
 
 .mod-title a:hover {
