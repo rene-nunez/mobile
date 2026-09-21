@@ -9,11 +9,18 @@ body {
 }
 
 .utility-bar__inner {
-  max-width: 840px;
+  max-width: 1000px;
   height: 100%;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.utility-bar__links {
   display: flex;
   align-items: center;
+  justify-self: center;
 }
 
 .utility-link {
@@ -47,7 +54,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  margin-left: auto;
+  margin: 0 100px;
+  justify-self: center;
   text-decoration: none;
 }
 
@@ -65,18 +73,18 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: auto;
+  justify-self: center;
 }
 
 .language-button,
 .account-button {
-  height: 30px;
-  padding: 0 12px;
+  height: 28px;
+  padding: 0 20px;
   border: 1px solid #eee;
   border-radius: 3px;
   background: #fff;
   color: #777;
-  font: 700 12px "Roboto", Arial, sans-serif;
+  font: 700 13px "Roboto", Arial, sans-serif;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -85,6 +93,7 @@ body {
 }
 
 .language-button { gap: 5px; }
+.language-button img { width: 20px; height: 20px; }
 .language-button i { width: 6px; height: 6px; border-right: 1px solid #777; border-bottom: 1px solid #777; transform: rotate(45deg) translateY(-2px); }
 .account-button--subscribe { background: #d90000; border-color: #d90000; color: #fff; }
 
@@ -328,7 +337,6 @@ body {
   background-image: url("assets/teams/teams-primera-s6ddcfcebca.png");
   background-repeat: no-repeat;
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 .team--0 { background-position: 0 0; }
@@ -378,7 +386,7 @@ body {
 
 @media (max-width: 767px) {
   .utility-link, .utility-bar__actions { display: none; }
-  .utility-bar__inner { justify-content: center; }
+  .utility-bar__inner { display: flex; justify-content: center; }
   .brand-link { margin-left: 0; }
   .brand-link__marca { width: 105px; }
   .main-nav__inner { justify-content: space-between; gap: 0; padding: 0 1rem; }
