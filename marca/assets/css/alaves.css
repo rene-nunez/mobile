@@ -172,20 +172,16 @@ body {
   height: 28px;
   flex: 0 0 28px;
   border: 0;
-  background: transparent;
+  background-image: url("../sprites-1534937031572.png");
+  background-repeat: no-repeat;
+  /* Tamaño 1:1 con las coordenadas del sprite SVG (219.592 x 2023):
+     así background-position usa directamente los "y" del sprite. */
+  background-size: 219.592px 2023px;
+  /* Icono de búsqueda (search-a) en y=1640 del sprite. El mango ya
+     apunta hacia abajo-izquierda, por lo que no lleva espejo. */
+  background-position: 0 -1640px;
   cursor: pointer;
   padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search-toggle img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  /* Efecto espejo: la lupa queda inclinada hacia la izquierda */
-  transform: scaleX(-1);
 }
 
 .account-button {
@@ -261,8 +257,9 @@ body {
 .red-bar__league {
   color: rgba(255, 255, 255, .75);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 700;
   white-space: nowrap;
+  transition: opacity .2s ease;
 }
 
 .red-bar__sep {
@@ -275,13 +272,19 @@ body {
   font-size: 18px;
   font-weight: 700;
   white-space: nowrap;
+  transition: opacity .2s ease;
+}
+
+/* Al pasar el cursor sobre LaLiga Santander o Alavés se desvanecen */
+.red-bar__league:hover,
+.red-bar__team:hover {
+  opacity: .5;
 }
 
 .red-bar__sections {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-left: 12px;
+  gap: 8px;
   white-space: nowrap;
 }
 
@@ -289,11 +292,14 @@ body {
   color: rgba(255, 255, 255, .92);
   font-size: 15px;
   text-decoration: none;
+  padding: 5px 8px;
+  transition: background-color .25s ease, color .25s ease;
 }
 
+/* Como en la barra blanca: fondo negro con letras blancas al pasar el cursor */
 .red-bar__sections a:hover {
+  background: #192733;
   color: #fff;
-  text-decoration: underline;
 }
 
 /* ------------------------------------------------------------
