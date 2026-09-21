@@ -25,6 +25,7 @@ body {
   border-bottom: 1px solid #cccccc;
   padding-top: 4px;
   padding-bottom: 4px;
+  padding-left: 12px;
   font-size: 13px;
 }
 
@@ -38,7 +39,6 @@ body {
 }
 
 .seo-link:hover {
-  color: #c00 !important;
   text-decoration: underline !important;
 }
 
