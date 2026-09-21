@@ -51,7 +51,7 @@ body {
 .utility-link__fantasy { width: 31px; height: 35px; }
 
 .brand-link {
-  display: inline-flex;
+  display: inline-flex; 
   align-items: center;
   gap: 3px;
   margin: 0 100px;
