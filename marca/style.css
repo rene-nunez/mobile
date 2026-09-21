@@ -20,6 +20,28 @@ body {
   object-fit: cover;
 }
 
+.es-noticia {
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 13px;
+}
+
+.seo-links {
+  list-style: none;
+}
+
+.seo-link {
+  color: #333333;
+  text-decoration: none;
+}
+
+.seo-link:hover {
+  color: #c00 !important;
+  text-decoration: underline !important;
+}
+
 .list-unstyled a:hover {
   text-decoration: underline !important;
 }
