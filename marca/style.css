@@ -339,6 +339,9 @@ body {
   background-image: url("assets/teams/teams-primera-s6ddcfcebca.png");
   background-repeat: no-repeat;
   -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .team--0 { background-position: 0 0; }
