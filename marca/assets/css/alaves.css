@@ -172,6 +172,7 @@ body {
   height: 28px;
   flex: 0 0 28px;
   border: 0;
+  background-color: transparent;
   background-image: url("../sprites-1534937031572.png");
   background-repeat: no-repeat;
   /* Tamaño 1:1 con las coordenadas del sprite SVG (219.592 x 2023):
