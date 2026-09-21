@@ -40,7 +40,7 @@
         </div>
         <nav class="main-nav" aria-label="Navegación principal">
           <div class="main-nav__inner">
-            <button class="main-nav__menu" type="button" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+            <button class="main-nav__menu" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
             <button class="main-nav__link has-dropdown" type="button" data-menu-trigger="football" aria-expanded="false">Fútbol</button>
             <button class="main-nav__link has-dropdown" type="button" data-menu-trigger="basketball" aria-expanded="false">Baloncesto</button>
             <button class="main-nav__link has-dropdown" type="button" data-menu-trigger="motor" aria-expanded="false">Motor</button>
@@ -57,6 +57,20 @@
               <input id="site-search" type="search" placeholder="Buscar en marca.com">
               <button type="submit" aria-label="Buscar"></button>
             </form>
+          </div>
+          <div class="mobile-menu" aria-hidden="true">
+            <div class="mobile-menu-links">
+              <button type="button" data-menu-trigger="football" aria-haspopup="true">Fútbol</button>
+              <button type="button" data-menu-trigger="basketball" aria-haspopup="true">Baloncesto</button>
+              <button type="button" data-menu-trigger="motor" aria-haspopup="true">Motor</button>
+              <button type="button" data-menu-trigger="sports" aria-haspopup="true">Polideportivo</button>
+              <button type="button" class="mobile-menu-links__more" data-menu-trigger="more" aria-haspopup="true">Más +</button>
+            </div>
+            <div class="more-quick-links">
+              <a href="#" class="main-nav__link">Fichajes</a>
+              <a href="#" class="main-nav__link">Vídeos</a>
+              <a href="#" class="main-nav__link">eSports</a>
+            </div>
           </div>
           <section class="nav-dropdown nav-dropdown--dark" data-menu="football" aria-label="Menú de fútbol">
             <div class="nav-dropdown__grid nav-dropdown__grid--three">
@@ -271,6 +285,8 @@
         const nav = document.querySelector('.main-nav');
         const triggers = [...nav.querySelectorAll('[data-menu-trigger]')];
         const menus = [...nav.querySelectorAll('[data-menu]')];
+        const menuButton = nav.querySelector('.main-nav__menu');
+        const mobileMenu = nav.querySelector('.mobile-menu');
 
         const closeMenus = () => {
           triggers.forEach(trigger => {
@@ -287,16 +303,52 @@
           trigger.setAttribute('aria-expanded', 'true');
           menu.classList.add('is-open');
         };
-        
+
+        const closeMobileMenu = () => {
+          if (!mobileMenu) return;
+          mobileMenu.classList.remove('is-open');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          if (menuButton) {
+            menuButton.classList.remove('is-active');
+            menuButton.setAttribute('aria-expanded', 'false');
+          }
+        };
+
+        const openMobileMenu = () => {
+          if (!mobileMenu) return;
+          closeMenus();
+          mobileMenu.classList.add('is-open');
+          mobileMenu.setAttribute('aria-hidden', 'false');
+          if (menuButton) {
+            menuButton.classList.add('is-active');
+            menuButton.setAttribute('aria-expanded', 'true');
+          }
+        };
+
+        const isAnythingOpen = () =>
+          (mobileMenu && mobileMenu.classList.contains('is-open')) ||
+          triggers.some(trigger => trigger.classList.contains('is-active'));
+
+        if (menuButton) {
+          menuButton.addEventListener('click', () => {
+            if (isAnythingOpen()) {
+              closeMenus();
+              closeMobileMenu();
+            } else {
+              openMobileMenu();
+            }
+          });
+        }
+
         triggers.forEach(trigger => {
           trigger.addEventListener('click', () => {
             const menu = nav.querySelector(`[data-menu="${trigger.dataset.menuTrigger}"]`);
             const isOpen = trigger.classList.contains('is-active');
             closeMenus();
             if (!isOpen) openMenu(trigger);
+            else closeMobileMenu();
           });
 
-          
           trigger.addEventListener('mouseenter', () => {
             if (window.matchMedia('(min-width: 768px)').matches) openMenu(trigger);
           });
@@ -307,11 +359,17 @@
         });
 
         document.addEventListener('click', event => {
-          if (!nav.contains(event.target)) closeMenus();
+          if (!nav.contains(event.target)) {
+            closeMenus();
+            closeMobileMenu();
+          }
         });
 
         document.addEventListener('keydown', event => {
-          if (event.key === 'Escape') closeMenus();
+          if (event.key === 'Escape') {
+            closeMenus();
+            closeMobileMenu();
+          }
         });
       })();
     </script>

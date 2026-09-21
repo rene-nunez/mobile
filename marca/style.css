@@ -114,7 +114,7 @@ body {
 
 .main-nav__inner {
   min-height: 47px;
-  gap: 28px;
+  gap: 26px;
 }
 
 .main-nav__link {
@@ -303,6 +303,8 @@ body {
 
 .main-nav__menu { display: none; }
 
+.mobile-menu { display: none; }
+
 .teams-bar {
   height: 40px;
   background: #eee;
@@ -368,8 +370,10 @@ body {
 
 @media (max-width: 1050px) {
   .main-nav__inner, .teams-bar__inner { padding: 0 1rem; }
-  .main-nav__inner { gap: 18px; }
-  .main-nav__dark-links { display: none; }
+  .main-nav__inner { gap: 12px; }
+  .main-nav__dark-links { gap: 12px; padding: 0 8px; }
+  .main-nav__link.has-dropdown::after { margin-left: 3px; }
+  .main-nav__search { width: 130px; }
   .teams-bar__betting { display: none; }
   .utility-bar__inner { padding: 0 1rem; }
   .utility-link { padding-left: 8px; padding-right: 8px; }
@@ -384,27 +388,35 @@ body {
   .more-quick-links a { margin: 0; color: #c00; font-size: 16px; font-weight: 700; }
 }
 
+@media (max-width: 900px) {
+  .main-nav__inner { gap: 8px; padding: 0 0.75rem; }
+  .main-nav__dark-links { gap: 8px; padding: 0 6px; }
+  .main-nav__search { width: 90px; }
+}
+
 @media (max-width: 767px) {
   .utility-link, .utility-bar__actions { display: none; }
   .utility-bar__inner { display: flex; justify-content: center; }
   .brand-link { margin-left: 0; }
   .brand-link__marca { width: 105px; }
   .main-nav__inner { justify-content: space-between; gap: 0; padding: 0 1rem; }
-  .main-nav__menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4px;
-    width: 25px;
-    height: 30px;
-    padding: 0;
-    background: transparent;
-    border: 0;
-  }
+  .main-nav__dark-links { display: none; }
+  .main-nav__menu { display: flex; cursor: pointer; flex-direction: column; justify-content: center; gap: 4px; width: 25px; height: 30px; padding: 0; background: transparent; border: 0; }
   .main-nav__menu span { width: 20px; height: 2px; background: #fff; }
   .main-nav__link.has-dropdown, .main-nav__more { display: none; }
   .main-nav__search { display: flex; width: min(58vw, 232px); }
   .main-nav__menu.is-active { background: #192733; }
+  .mobile-menu {
+    position: absolute;
+    top: 47px;
+    left: 0;
+    right: 0;
+    z-index: 18;
+    padding: 12px 1rem 18px;
+    background: #192733;
+  }
+  .mobile-menu.is-open { display: block; }
+  .mobile-menu-links__more { grid-column: 1 / -1; }
   .nav-dropdown { top: 47px; max-height: calc(100vh - 47px); overflow-y: auto; }
   .nav-dropdown--dark, .nav-dropdown--compact, .nav-dropdown--short { min-height: auto; }
   .nav-dropdown__grid, .nav-dropdown__grid--three, .nav-dropdown__grid--four { display: block; padding: 18px 24px 28px; }
