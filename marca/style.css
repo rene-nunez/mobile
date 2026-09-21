@@ -435,6 +435,8 @@ body {
   .newsletter { margin-top: 25px; padding: 20px 0; white-space: normal; }
   .more-section--webs { margin-top: 20px; padding: 22px 18px; }
   .teams-bar__inner { overflow: hidden; }
+}
+
 .ad-top {
   display: flex;
   justify-content: center;
