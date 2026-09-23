@@ -67,15 +67,15 @@
               Polideportivo
               <span class="nav-arrow" aria-hidden="true"></span>
             </button>
+            <button class="main-nav__link main-nav__more" type="button" data-menu-trigger="more" aria-expanded="false">
+              <span class="more-label">Más +</span>
+            </button>
             <div class="main-nav__dark-links">
               <a href="#" class="main-nav__link main-nav__link--faded">#</a>
               <a href="#" class="main-nav__link">Fichajes</a>
               <a href="#" class="main-nav__link">Vídeos</a>
               <a href="#" class="main-nav__link">eSports</a>
             </div>
-            <button class="main-nav__link main-nav__more" type="button" data-menu-trigger="more" aria-expanded="false">
-              <span class="more-label">Más +</span>
-            </button>
             <form class="main-nav__search" role="search">
               <label class="visually-hidden" for="site-search">Buscar en marca.com</label>
               <input id="site-search" type="search" placeholder="Buscar en marca.com">
@@ -835,7 +835,7 @@
           });
 
           trigger.addEventListener('mouseenter', () => {
-            if (window.matchMedia('(min-width: 768px)').matches) openMenu(trigger);
+            if (trigger.dataset.menuTrigger !== 'more' && window.matchMedia('(min-width: 768px)').matches) openMenu(trigger);
           });
         });
 

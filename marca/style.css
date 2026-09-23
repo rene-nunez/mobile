@@ -36,6 +36,11 @@ body {
   white-space: nowrap;
 }
 
+.utility-link:hover,
+.utility-link:hover span { color: #c00; }
+
+.utility-bar__links .utility-link:last-child { border-right: 0; }
+
 .utility-link--cover { padding-left: 0; }
 .utility-link--cover img { width: 27px; height: 37px; object-fit: cover; }
 .utility-link__radio {
@@ -49,14 +54,14 @@ body {
 .utility-link__fantasy { width: 31px; height: 35px; }
 
 .brand-link {
-  display: inline-flex; 
-  align-items: center;
-  gap: 3px;
+  position: relative;
+  display: inline-block;
   justify-self: center;
   text-decoration: none;
 }
 
 .brand-link__marca {
+  display: block;
   width: 134px;
   height: 40px;
   background-image: url("assets/sprites-1534937031572.png");
@@ -64,7 +69,14 @@ body {
   background-size: 211px 1940px;
   background-position: 0 -867px;
 }
-.brand-link img { width: 39px; height: 34px; }
+.brand-link img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -38px;
+  width: 44px;
+  height: 50px;
+}
 
 .utility-bar__actions {
   display: flex;
@@ -77,7 +89,7 @@ body {
 .account-button {
   height: 32px;
   padding: 0 20px;
-  border: 1px solid #eee;
+  border: 1px solid #e2e2e2;
   border-radius: 3px;
   background: #fff;
   color: #777;
@@ -89,10 +101,12 @@ body {
   white-space: nowrap;
 }
 
-.language-button { gap: 5px; }
+.language-button { gap: 5px; font-weight: 400; }
 .language-button img { width: 20px; height: 20px; }
 .language-button i { width: 6px; height: 6px; border-right: 1px solid #777; border-bottom: 1px solid #777; transform: rotate(45deg) translateY(-2px); }
-.account-button--subscribe { background: #d90000; border-color: #d90000; color: #fff; }
+.account-button { color: #c00; }
+.account-button:hover { background: #15222c; border-color: #15222c; color: #fff; }
+.account-button--subscribe { background: #cc0000; border-color: #cc0000; color: #fff; }
 
 .main-nav {
   min-height: 44px;
@@ -151,7 +165,7 @@ body {
   background: #af0000;
 }
 .main-nav__dark-links .main-nav__link { font-size: 15px; }
-.main-nav__more { margin-left: auto; }
+.main-nav__more { margin-left: 0; }
 
 @media (max-width: 1280px) {
   .main-nav__dark-links { display: none; }
@@ -164,6 +178,7 @@ body {
 
 .main-nav__link.is-active { align-self: stretch; padding: 0 9px; background: #192733; }
 .main-nav__more.is-active { background: #f2f4f5; color: #17222c; }
+.main-nav__more:hover { color: #b3b3b3; }
 .main-nav__more.is-active .more-label { font-size: 0; }
 .main-nav__more.is-active .more-label::after { content: "Cerrar ×"; font-size: 16px; }
 
@@ -292,6 +307,7 @@ body {
   width: 232px;
   height: 33px;
   display: flex;
+  margin-left: auto;
   background: #fff;
   border-radius: 2px;
 }
@@ -301,9 +317,14 @@ body {
   flex: 1;
   border: 0;
   padding: 0 11px;
-  color: #777;
+  color: #949393;
   font: 14px "Roboto", Arial, sans-serif;
   outline: 0;
+}
+
+.main-nav__search input::placeholder {
+  color: #949393;
+  opacity: 1;
 }
 
 .main-nav__search button {
