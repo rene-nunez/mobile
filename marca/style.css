@@ -156,7 +156,7 @@ body {
   background: #af0000;
 }
 .main-nav__dark-links .main-nav__link { font-size: 15px; }
-.main-nav__more { margin-left: auto; }
+.main-nav__more { margin-left: 0; }
 
 @media (max-width: 1280px) {
   .main-nav__dark-links { display: none; }
@@ -297,6 +297,7 @@ body {
   width: 232px;
   height: 33px;
   display: flex;
+  margin-left: auto;
   background: #fff;
   border-radius: 2px;
 }
