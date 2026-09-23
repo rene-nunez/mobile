@@ -9,9 +9,7 @@ body {
 }
 
 .utility-bar__inner {
-  max-width: 1000px;
   height: 100%;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -20,7 +18,7 @@ body {
 .utility-bar__links {
   display: flex;
   align-items: center;
-  justify-self: center;
+  justify-self: start;
 }
 
 .utility-link {
@@ -54,7 +52,6 @@ body {
   display: inline-flex; 
   align-items: center;
   gap: 3px;
-  margin: 0 100px;
   justify-self: center;
   text-decoration: none;
 }
@@ -73,7 +70,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  justify-self: center;
+  justify-self: end;
 }
 
 .language-button,
@@ -106,8 +103,6 @@ body {
 
 .main-nav__inner,
 .teams-bar__inner {
-  max-width: 1000px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
 }
@@ -156,6 +151,15 @@ body {
   background: #af0000;
 }
 .main-nav__more { margin-left: auto; }
+
+@media (max-width: 1280px) {
+  .main-nav__dark-links { display: none; }
+}
+
+@media (min-width: 1281px) {
+  .main-nav__dark-links { margin-left: auto; }
+  .main-nav__more { margin-left: 0; }
+}
 
 .main-nav__link.is-active { align-self: stretch; padding: 0 9px; background: #192733; }
 .main-nav__more.is-active { background: #f2f4f5; color: #17222c; }
@@ -233,6 +237,27 @@ body {
   grid-template-columns: 1.1fr 1fr;
   gap: 40px;
   padding: 22px 18px 0;
+}
+
+.more-menu__highlight {
+  grid-column: 1 / -1;
+  display: flex;
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #c2cbd2;
+}
+.more-menu__highlight a {
+  color: #221f1f;
+  font-size: 15px;
+  line-height: 44px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.more-menu__highlight a:hover { color: #c00; }
+.more-menu__highlight a:nth-child(n+2)::before {
+  content: "/";
+  color: #85929e;
+  padding: 0 13px 0 12px;
 }
 
 .mobile-menu-links,
@@ -380,12 +405,11 @@ body {
 .teams-bar__betting img { width: 180px; height: 26px; object-fit: contain; }
 
 @media (max-width: 1050px) {
-  .main-nav__inner, .teams-bar__inner { padding: 0 1rem; }
+  .marca-pad { padding: 0 2.5rem; }
   .main-nav__inner { gap: 12px; }
   .main-nav__dark-links { gap: 12px; padding: 0 8px; }
   .main-nav__search { width: 130px; }
   .teams-bar__betting { display: none; }
-  .utility-bar__inner { padding: 0 1rem; }
   .utility-link { padding-left: 8px; padding-right: 8px; }
   .brand-link__marca { width: 112px; }
   .more-quick-links {
@@ -399,17 +423,19 @@ body {
 }
 
 @media (max-width: 900px) {
-  .main-nav__inner { gap: 8px; padding: 0 0.75rem; }
+  .marca-pad { padding: 0 2rem; }
+  .main-nav__inner { gap: 8px; }
   .main-nav__dark-links { gap: 8px; padding: 0 6px; }
   .main-nav__search { width: 90px; }
 }
 
 @media (max-width: 767px) {
+  .marca-pad { padding: 0 1rem; }
   .utility-link, .utility-bar__actions { display: none; }
   .utility-bar__inner { display: flex; justify-content: center; }
-  .brand-link { margin-left: 0; }
+  .brand-link { margin: 0; }
   .brand-link__marca { width: 105px; }
-  .main-nav__inner { justify-content: space-between; gap: 0; padding: 0 1rem; }
+  .main-nav__inner { justify-content: space-between; gap: 0; }
   .main-nav__dark-links { display: none; }
   .main-nav__menu { display: flex; cursor: pointer; flex-direction: column; justify-content: center; gap: 4px; width: 25px; height: 30px; padding: 0; background: transparent; border: 0; }
   .main-nav__menu span { width: 20px; height: 2px; background: #fff; }
