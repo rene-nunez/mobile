@@ -303,9 +303,14 @@ body {
   flex: 1;
   border: 0;
   padding: 0 11px;
-  color: #878686;
+  color: #949393;
   font: 14px "Roboto", Arial, sans-serif;
   outline: 0;
+}
+
+.main-nav__search input::placeholder {
+  color: #949393;
+  opacity: 1;
 }
 
 .main-nav__search button {
