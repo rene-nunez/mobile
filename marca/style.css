@@ -3,7 +3,7 @@ body {
 }
 
 .utility-bar {
-  height: 50px;
+  height: 60px;
   background: #fff;
   border-bottom: 1px solid #eee;
 }
@@ -28,7 +28,7 @@ body {
   gap: 7px;
   padding: 0 12px;
   border-right: 1px solid #e5e5e5;
-  color: #333;
+  color: #221f1f;
   font-size: 12px;
   font-weight: 700;
   line-height: 14px;
@@ -75,7 +75,7 @@ body {
 
 .language-button,
 .account-button {
-  height: 28px;
+  height: 32px;
   padding: 0 20px;
   border: 1px solid #eee;
   border-radius: 3px;
