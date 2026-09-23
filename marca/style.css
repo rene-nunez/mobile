@@ -39,6 +39,8 @@ body {
 .utility-link:hover,
 .utility-link:hover span { color: #c00; }
 
+.utility-bar__links .utility-link:last-child { border-right: 0; }
+
 .utility-link--cover { padding-left: 0; }
 .utility-link--cover img { width: 27px; height: 37px; object-fit: cover; }
 .utility-link__radio {
@@ -52,14 +54,14 @@ body {
 .utility-link__fantasy { width: 31px; height: 35px; }
 
 .brand-link {
-  display: inline-flex; 
-  align-items: center;
-  gap: 3px;
+  position: relative;
+  display: inline-block;
   justify-self: center;
   text-decoration: none;
 }
 
 .brand-link__marca {
+  display: block;
   width: 134px;
   height: 40px;
   background-image: url("assets/sprites-1534937031572.png");
@@ -67,7 +69,14 @@ body {
   background-size: 211px 1940px;
   background-position: 0 -867px;
 }
-.brand-link img { width: 39px; height: 34px; }
+.brand-link img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -38px;
+  width: 44px;
+  height: 50px;
+}
 
 .utility-bar__actions {
   display: flex;
