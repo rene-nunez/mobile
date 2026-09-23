@@ -43,7 +43,7 @@ body {
 .utility-link__radio {
   width: 35px;
   height: 35px;
-  background-image: url("assets/sprites-1534937031572.png");
+  background-image: url("../assets/sprites-1534937031572.png");
   background-repeat: no-repeat;
   background-size: 160px 1474px;
   background-position: 0 -910px;
@@ -62,7 +62,7 @@ body {
 .brand-link__marca {
   width: 134px;
   height: 40px;
-  background-image: url("assets/sprites-1534937031572.png");
+  background-image: url("../assets/sprites-1534937031572.png");
   background-repeat: no-repeat;
   background-size: 211px 1940px;
   background-position: 0 -867px;
@@ -336,7 +336,7 @@ body {
   width: 40px;
   height: 40px;
   flex: 0 0 40px;
-  background-image: url("assets/teams/teams-primera-s6ddcfcebca.png");
+  background-image: url("../assets/teams/teams-primera-s6ddcfcebca.png");
   background-repeat: no-repeat;
   -webkit-user-drag: none;
   -webkit-user-select: none;
@@ -561,7 +561,7 @@ body {
   position: absolute;
   inset: 0;
   margin: auto;
-  background-image: url("assets/play.png");
+  background-image: url("../assets/play.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 40px;
@@ -571,7 +571,7 @@ body {
 }
 
 .view-video:hover {
-  background-image: url("assets/play-hover.png");
+  background-image: url("../assets/play-hover.png");
 }
 
 .social-icon {
