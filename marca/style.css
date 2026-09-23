@@ -2,6 +2,14 @@ body {
   font-family: "Roboto", Arial, sans-serif;
 }
 
+/* Gutter horizontal base. Debe quedar ANTES de los media queries de abajo
+   para que sus overrides (2.5rem/2rem/1rem) ganen en cascada en pantallas
+   pequeñas. */
+.marca-pad {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 .utility-bar {
   height: 60px;
   background: #fff;
@@ -73,9 +81,18 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: -38px;
+  left: 105%; /* margen = 5% del ancho del logo en cada breakpoint:
+                 pegada al logo pero con separación, nunca tapa la última "a" */
+  right: auto;
   width: 44px;
   height: 50px;
+}
+
+/* Franja estrecha: los botones de idioma/Suscríbete/Iniciar sesión se compactan
+   para dejar sitio a la insignia junto al logo sin solaparse con ellos. */
+@media (max-width: 1150px) {
+  .utility-bar__actions .account-button,
+  .utility-bar__actions .language-button { padding: 0 12px; }
 }
 
 .utility-bar__actions {
@@ -554,9 +571,8 @@ body {
   white-space: nowrap;
 }
 
-.sticky-redbar__menu { display: none; }
-
 .sticky-redbar__logo {
+  flex: 0 0 auto; /* evita que el flex shrink lo aplaste junto a los enlaces */
   width: 44px;
   height: 30px;
   background-image: url("assets/sprites-1534937031572.png");
@@ -597,6 +613,7 @@ body {
 
 @media (max-width: 900px) {
   .sticky-redbar__inner { gap: 8px; }
+  .sticky-redbar__more { display: none; }
 }
 
 @media (max-width: 1050px) {
@@ -619,6 +636,8 @@ body {
 
 @media (max-width: 900px) {
   .marca-pad { padding: 0 2rem; }
+  .utility-link--cover { display: none; } /* libera espacio: en la franja tablet la barra superior es muy estrecha */
+  .utility-bar__actions .language-button { display: none; } /* 768-900px no cabe [logo][insignia][ES][acceso]: se prioriza la insignia siempre visible */
   .main-nav__inner { gap: 8px; }
   .main-nav__dark-links { gap: 8px; padding: 0 6px; }
   .main-nav__search { width: 90px; }
@@ -668,11 +687,14 @@ body {
   .sticky-header__logo { width: 40px; height: 27px; background-size: 128.9px 1187.4px; background-position: 0 -646px; }
   .sticky-redbar__inner { justify-content: space-between; gap: 0; }
   .sticky-redbar__link, .sticky-redbar__dark-links, .sticky-redbar__more { display: none; }
-  .sticky-redbar__menu { display: flex; cursor: pointer; flex-direction: column; justify-content: center; gap: 4px; width: 25px; height: 30px; padding: 0; background: transparent; border: 0; }
-  .sticky-redbar__menu span { width: 20px; height: 2px; background: #fff; }
   .sticky-redbar__actions { gap: 8px; margin-left: 0; }
   .sticky-redbar__account { padding: 0 12px; }
   .sticky-redbar__logo { width: 40px; height: 27px; background-size: 128.9px 1187.4px; background-position: 0 -673px; }
+}
+
+@media (max-width: 340px) {
+  /* Móviles muy estrechos: solo lupa + Suscríbete para no desbordar la barra */
+  .sticky-redbar__actions .account-button:not(.account-button--subscribe) { display: none; }
 }
 
 .ad-top {
@@ -714,11 +736,6 @@ body {
 
 .list-unstyled a:hover {
   text-decoration: underline !important;
-}
-
-.marca-pad {
-  padding-left: 6rem;
-  padding-right: 6rem;
 }
 
 .footer-legal a {
