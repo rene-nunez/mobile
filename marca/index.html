@@ -796,7 +796,7 @@
           });
 
           trigger.addEventListener('mouseenter', () => {
-            if (window.matchMedia('(min-width: 768px)').matches) openMenu(trigger);
+            if (trigger.dataset.menuTrigger !== 'more' && window.matchMedia('(min-width: 768px)').matches) openMenu(trigger);
           });
         });
 
