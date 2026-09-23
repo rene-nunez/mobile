@@ -377,6 +377,34 @@
           </div>
         </div>
       </header>
+      <nav class="sticky-redbar" id="stickyRedbar" aria-label="Navegación principal" aria-hidden="true">
+        <div class="sticky-redbar__inner marca-pad">
+          <button class="sticky-redbar__menu" type="button" aria-label="Abrir menú" tabindex="-1">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <a href="#" class="sticky-redbar__logo" aria-label="MARCA" title="MARCA" tabindex="-1"></a>
+          <a href="#" class="sticky-redbar__link">Fútbol</a>
+          <a href="#" class="sticky-redbar__link">Baloncesto</a>
+          <a href="#" class="sticky-redbar__link">Motor</a>
+          <a href="#" class="sticky-redbar__link">Polideportivo</a>
+          <div class="sticky-redbar__dark-links">
+            <a href="#" class="sticky-redbar__link sticky-redbar__link--faded">#</a>
+            <a href="#" class="sticky-redbar__link">Fichajes</a>
+            <a href="#" class="sticky-redbar__link">Vídeos</a>
+            <a href="#" class="sticky-redbar__link">eSports</a>
+          </div>
+          <button class="sticky-redbar__more" type="button" tabindex="-1">
+            <span class="more-label">Más +</span>
+          </button>
+          <div class="sticky-redbar__actions">
+            <a href="#" class="sticky-redbar__search" aria-label="Buscar en marca.com" tabindex="-1"></a>
+            <a href="#" class="account-button account-button--subscribe">Suscríbete</a>
+            <a href="#" class="account-button">Iniciar sesión</a>
+          </div>
+        </div>
+      </nav>
       <div class="sticky-header" id="stickyHeader" aria-hidden="true">
         <div class="sticky-header__bar">
           <a href="#" class="sticky-header__brand" aria-label="Portada de MARCA" tabindex="-1">
@@ -935,26 +963,52 @@
     <script>
       (() => {
         const stickyHeader = document.getElementById('stickyHeader');
+        const stickyRedbar = document.getElementById('stickyRedbar');
         const progressBar = document.getElementById('js_progressBar');
         const siteHeader = document.querySelector('.site-header');
         const brandLink = stickyHeader?.querySelector('.sticky-header__brand');
-        if (!stickyHeader || !progressBar || !siteHeader) return;
+        const redbarInteractive = stickyRedbar
+          ? Array.from(stickyRedbar.querySelectorAll('a, button'))
+          : [];
+        if (!stickyHeader || !stickyRedbar || !progressBar || !siteHeader) return;
 
-        // La barra fija aparece cuando las tres barras de la cabecera
+        // Muestra u oculta una barra fija y saca sus enlaces/botones del
+        // orden de tabulación cuando no está visible (accesibilidad).
+        const setVisible = (bar, visible, interactive) => {
+          bar.classList.toggle('is-visible', visible);
+          bar.setAttribute('aria-hidden', visible ? 'false' : 'true');
+          interactive.filter(Boolean).forEach((el) => {
+            el.tabIndex = visible ? 0 : -1;
+          });
+        };
+
+        // Las barras fijas aparecen cuando las tres barras de la cabecera
         // (utilidades, navegación y equipos) quedan fuera de pantalla.
+        // Bajando se muestra la barra blanca de "Portada"; subiendo, la
+        // barra roja de navegación como acceso directo sin llegar arriba.
+        let lastY = window.scrollY;
         let ticking = false;
 
         const update = () => {
-          const show = window.scrollY > siteHeader.offsetHeight;
-          stickyHeader.classList.toggle('is-visible', show);
-          stickyHeader.setAttribute('aria-hidden', show ? 'false' : 'true');
-          if (brandLink) brandLink.tabIndex = show ? 0 : -1;
+          const y = window.scrollY;
+          const pastHeader = y > siteHeader.offsetHeight;
+          const scrollingUp = y < lastY;
+          lastY = y;
 
-          // Barra de progreso: 0% arriba del todo, 100% al final de la página.
+          if (pastHeader) {
+            setVisible(stickyRedbar, scrollingUp, redbarInteractive);
+            setVisible(stickyHeader, !scrollingUp, [brandLink]);
+          } else {
+            setVisible(stickyRedbar, false, redbarInteractive);
+            setVisible(stickyHeader, false, [brandLink]);
+          }
+
+          // Barra de progreso de lectura: 0% arriba del todo, 100% al
+          // final de la página, llenándose de izquierda a derecha.
           const doc = document.documentElement;
           const scrollable = doc.scrollHeight - window.innerHeight;
           const progress = scrollable > 0
-            ? Math.max(0, Math.min(window.scrollY / scrollable, 1))
+            ? Math.max(0, Math.min(y / scrollable, 1))
             : 0;
           const track = progressBar.parentElement;
           const maxWidth = track ? track.clientWidth : 0;

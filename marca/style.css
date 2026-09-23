@@ -469,6 +469,115 @@ body {
   background: #cc0000;
 }
 
+/* Barra roja fija que aparece al volver hacia arriba: acceso directo a
+   la navegación principal sin tener que subir hasta la cabecera */
+.sticky-redbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  min-height: 44px;
+  background: #cc0000;
+  color: #fff;
+  transform: translateY(-101%);
+  transition: transform .3s ease, box-shadow .3s ease;
+  will-change: transform;
+}
+
+.sticky-redbar.is-visible {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+}
+
+.sticky-redbar__inner {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 26px;
+}
+
+.sticky-redbar__link {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sticky-redbar__link:hover { color: #fff; }
+
+.sticky-redbar__link--faded { color: #c50000; font-size: 24px; font-weight: 400; }
+
+.sticky-redbar__dark-links {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 12px;
+  background: #af0000;
+}
+
+.sticky-redbar__dark-links .sticky-redbar__link { font-size: 15px; }
+
+.sticky-redbar__more {
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: #fff;
+  font: 700 18px "Roboto", Arial, Helvetica, sans-serif;
+  white-space: nowrap;
+}
+
+.sticky-redbar__menu { display: none; }
+
+.sticky-redbar__logo {
+  width: 44px;
+  height: 30px;
+  background-image: url("assets/sprites-1534937031572.png");
+  background-repeat: no-repeat;
+  background-size: 143.2px 1319.4px; /* sprite completo reescalado */
+  background-position: 0 -748px;     /* logo-marca-min-b: M roja sobre blanco */
+}
+
+.sticky-redbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 18px;
+}
+
+.sticky-redbar__search {
+  width: 17px;
+  height: 17px;
+  background-image: url("assets/sprites-1534937031572.png");
+  background-repeat: no-repeat;
+  background-size: 109.8px 1011.5px; /* sprite completo reescalado */
+  background-position: 0 -837px;     /* search-b: lupa blanca */
+}
+
+@media (max-width: 1280px) {
+  .sticky-redbar__dark-links { display: none; }
+}
+
+@media (min-width: 1281px) {
+  .sticky-redbar__dark-links { margin-left: auto; }
+  .sticky-redbar__more { margin-left: 0; }
+}
+
+@media (max-width: 1050px) {
+  .sticky-redbar__inner { gap: 12px; }
+  .sticky-redbar__actions { gap: 8px; }
+}
+
+@media (max-width: 900px) {
+  .sticky-redbar__inner { gap: 8px; }
+}
+
 @media (max-width: 1050px) {
   .marca-pad { padding: 0 2.5rem; }
   .main-nav__inner { gap: 12px; }
@@ -536,6 +645,13 @@ body {
   .sticky-header__bar { padding: 0 1rem; }
   .sticky-header__label { font-size: 16px; }
   .sticky-header__logo { width: 40px; height: 27px; background-size: 128.9px 1187.4px; background-position: 0 -646px; }
+  .sticky-redbar__inner { justify-content: space-between; gap: 0; }
+  .sticky-redbar__link, .sticky-redbar__dark-links, .sticky-redbar__more { display: none; }
+  .sticky-redbar__menu { display: flex; cursor: pointer; flex-direction: column; justify-content: center; gap: 4px; width: 25px; height: 30px; padding: 0; background: transparent; border: 0; }
+  .sticky-redbar__menu span { width: 20px; height: 2px; background: #fff; }
+  .sticky-redbar__actions { gap: 8px; margin-left: 0; }
+  .sticky-redbar__account { padding: 0 12px; }
+  .sticky-redbar__logo { width: 40px; height: 27px; background-size: 128.9px 1187.4px; background-position: 0 -673px; }
 }
 
 .ad-top {
