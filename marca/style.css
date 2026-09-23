@@ -130,12 +130,20 @@ body {
 
 .main-nav__link:hover { color: #fff; }
 
-.main-nav__link.has-dropdown::after {
-  content: "⌄";
-  font-size: 15px;
-  font-weight: 400;
-  margin-left: 6px;
-  vertical-align: 2px;
+.nav-arrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  background-image: url("assets/sprites-1534937031572.svg");
+  background-repeat: no-repeat;
+  background-position: -1px -197px;
+  vertical-align: middle;
+  transition: transform .3s;
+}
+
+.main-nav__link[aria-expanded="true"] > .nav-arrow {
+  transform: rotate(180deg);
 }
 
 .main-nav__link--faded { color: #c50000; font-size: 24px; font-weight: 400; }
@@ -375,7 +383,6 @@ body {
   .main-nav__inner, .teams-bar__inner { padding: 0 1rem; }
   .main-nav__inner { gap: 12px; }
   .main-nav__dark-links { gap: 12px; padding: 0 8px; }
-  .main-nav__link.has-dropdown::after { margin-left: 3px; }
   .main-nav__search { width: 130px; }
   .teams-bar__betting { display: none; }
   .utility-bar__inner { padding: 0 1rem; }
