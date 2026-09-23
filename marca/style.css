@@ -159,6 +159,7 @@ body {
   font-size: 18px;
   font-weight: 700;
   white-space: nowrap;
+  flex: 0 0 auto; /* los enlaces nunca se comprimen: el buscador es el único que cede */
 }
 
 .main-nav__link:hover { color: #fff; }
@@ -187,6 +188,7 @@ body {
   gap: 20px;
   padding: 0 12px;
   background: #af0000;
+  flex: 0 0 auto;
 }
 .main-nav__dark-links .main-nav__link { font-size: 15px; }
 .main-nav__more { margin-left: 0; }
@@ -628,7 +630,8 @@ body {
   .marca-pad { padding: 0 2.5rem; }
   .main-nav__inner { gap: 12px; }
   .main-nav__dark-links { gap: 12px; padding: 0 8px; }
-  .main-nav__search { width: 130px; }
+  /* .main-nav__search sin ancho fijo: usa los 232px de base, alineado a la derecha,
+     y solo cede espacio si físicamente no cabe (los enlaces ya no se comprimen) */
   .teams-bar__betting { display: none; }
   .utility-link { padding-left: 8px; padding-right: 8px; }
   .brand-link__marca { width: 112px; background-size: 176.4px 1940px; } /* sprite escalado 112/134: la "a" final no se recorta */
@@ -648,7 +651,6 @@ body {
   .utility-bar__actions .language-button { display: none; } /* 768-900px no cabe [logo][insignia][ES][acceso]: se prioriza la insignia siempre visible */
   .main-nav__inner { gap: 8px; }
   .main-nav__dark-links { gap: 8px; padding: 0 6px; }
-  .main-nav__search { width: 90px; }
 }
 
 @media (max-width: 767px) {
