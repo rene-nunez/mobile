@@ -86,13 +86,6 @@ body {
   height: 50px;
 }
 
-/* La insignia 80 se oculta solo por debajo de 1100px CSS. El "1169" del tamaño
-   de ventana equivale a ~1135-1150px CSS (marco + scrollbar), así que en ese
-   tamaño la insignia SÍ se ve. Debajo de 1100px CSS desaparece. */
-@media (max-width: 1100px) {
-  .brand-link img { display: none; }
-}
-
 /* Franja estrecha: los botones de idioma/Suscríbete/Iniciar sesión se compactan
    para dejar sitio a la insignia junto al logo sin solaparse con ellos. */
 @media (max-width: 1150px) {
@@ -189,7 +182,6 @@ body {
   flex: 0 0 auto;
 }
 .main-nav__dark-links .main-nav__link { font-size: 15px; }
-.main-nav__more { margin-left: 0; }
 
 @media (max-width: 1280px) {
   .main-nav__dark-links { display: none; }
@@ -197,7 +189,6 @@ body {
 
 @media (min-width: 1281px) {
   .main-nav__dark-links { margin-left: auto; }
-  .main-nav__more { margin-left: 0; }
 }
 
 .main-nav__link.is-active { align-self: stretch; padding: 0 9px; background: #192733; }
@@ -633,14 +624,6 @@ body {
   .teams-bar__betting { display: none; }
   .utility-link { padding-left: 8px; padding-right: 8px; }
   .brand-link__marca { width: 112px; background-size: 176.4px 1940px; } /* sprite escalado 112/134: la "a" final no se recorta */
-  .more-quick-links {
-    grid-column: 1 / -1;
-    display: flex;
-    gap: 22px;
-    padding: 0 0 15px;
-    border-bottom: 1px solid #c2cbd2;
-  }
-  .more-quick-links a { margin: 0; color: #c00; font-size: 16px; font-weight: 700; }
 }
 
 @media (max-width: 900px) {
@@ -662,7 +645,7 @@ body {
   .main-nav__menu { display: flex; cursor: pointer; flex-direction: column; justify-content: center; gap: 4px; width: 25px; height: 30px; padding: 0; background: transparent; border: 0; }
   .main-nav__menu span { width: 20px; height: 2px; background: #fff; }
   .main-nav__link.has-dropdown, .main-nav__more { display: none; }
-  .main-nav__search { display: flex; width: min(58vw, 232px); }
+  .main-nav__search { width: min(58vw, 232px); }
   .main-nav__menu.is-active { background: #192733; }
   .mobile-menu {
     position: absolute;
@@ -675,7 +658,7 @@ body {
   }
   .mobile-menu.is-open { display: block; }
   .mobile-menu-links__more { grid-column: 1 / -1; }
-  .nav-dropdown { top: 44px; max-height: calc(100vh - 44px); overflow-y: auto; }
+  .nav-dropdown { max-height: calc(100vh - 44px); overflow-y: auto; }
   .nav-dropdown--dark, .nav-dropdown--compact, .nav-dropdown--short { min-height: auto; }
   .nav-dropdown__grid, .nav-dropdown__grid--three, .nav-dropdown__grid--four { display: block; padding: 18px 24px 28px; }
   .nav-menu-column { padding-bottom: 20px; }
@@ -684,7 +667,8 @@ body {
   .more-menu { display: block; padding: 18px; }
   .mobile-menu-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 18px; }
   .mobile-menu-links button { min-height: 42px; border: 0; background: #192733; color: #fff; font: 700 15px "Roboto", Arial, sans-serif; text-align: left; padding: 0 12px; }
-  .more-quick-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .more-quick-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 0 15px; border-bottom: 1px solid #c2cbd2; }
+  .more-quick-links a { margin: 0; color: #c00; font-size: 16px; font-weight: 700; }
   .more-section__columns, .more-webs { grid-template-columns: 1fr; gap: 0; }
   .more-section__columns h2 { margin-top: 25px; }
   .newsletter { margin-top: 25px; padding: 20px 0; white-space: normal; }
@@ -696,7 +680,6 @@ body {
   .sticky-redbar__inner { justify-content: space-between; gap: 0; }
   .sticky-redbar__link, .sticky-redbar__dark-links, .sticky-redbar__more { display: none; }
   .sticky-redbar__actions { gap: 8px; margin-left: 0; }
-  .sticky-redbar__account { padding: 0 12px; }
   .sticky-redbar__logo { width: 40px; height: 27px; background-size: 128.9px 1187.4px; background-position: 0 -673px; }
 }
 

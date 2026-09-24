@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MARCA - Diario online líder en información deportiva</title>
     <link href="assets/favicon.ico" type="image/x-icon" rel="icon">
-    <link href="assets/favicon.ico" type="image/x-icon" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
@@ -882,6 +881,7 @@
         let startX = 0;
         let startOffset = 0;
         let didDrag = false;
+        let downLink = null;
         const speed = 12;
 
         const cycleWidth = () => track.children[originals.length]?.offsetLeft || 0;
@@ -930,7 +930,6 @@
           dragging = false;
           carousel.classList.remove('is-dragging');
           if (carousel.hasPointerCapture(event.pointerId)) carousel.releasePointerCapture(event.pointerId);
-          previousTime = time;
           /* Reinicia el cálculo del instante anterior tras cualquier gesto:
              al soltar el carrusel se espera 1 s antes de retomar el movimiento. */
           previousTime = performance.now();
