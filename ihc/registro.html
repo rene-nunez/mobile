@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Shop - Registro (Réplica práctica IHC)</title>
+  <meta name="description" content="Réplica con fines académicos del formulario de registro de Software Shop. Práctica de Interacción Humano-Computadora.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#" aria-label="Software Shop inicio">
+        <span class="brand-mark">SS</span>
+        <span class="brand-text">SOFTWARE <strong>SHOP</strong></span>
+      </a>
+      <nav class="topnav" aria-label="Navegación principal">
+        <a href="#">Portafolios</a>
+        <a href="#">Industrias</a>
+        <a href="#">Asociados</a>
+        <a href="#">Contacto</a>
+      </nav>
+      <a class="btn-login" href="#">Entrar</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <img class="hero-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4 3.6-6 8-6s8 2 8 6'/%3E%3C/svg%3E" alt="" aria-hidden="true">
+      <h1>Regístrate</h1>
+      <p>en Software Shop y disfruta del<br>contenido que tenemos para ti.</p>
+    </div>
+  </section>
+
+  <main class="page">
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">¡Regístrate Rápidamente!</h2>
+      <p class="subtitle">Completa tus datos para crear tu cuenta. Los campos con * son obligatorios.</p>
+
+      <!-- Sin novalidate a propósito: queremos la validación nativa del navegador + CSS -->
+      <form action="#" method="post" autocomplete="on">
+
+        <!-- Resumen de errores: solo aparece con CSS cuando ya hay campos tocados e inválidos -->
+        <div class="summary" role="alert" aria-live="polite">
+          <strong>Revisa tu formulario:</strong>
+          <span>Hay campos con errores. Cada campo marcado en rojo te dice exactamente qué corregir.</span>
+        </div>
+
+        <!-- 1. Entidad -->
+        <div class="row row-2">
+          <div class="field">
+            <label for="tipo_entidad">Tipo de entidad *</label>
+            <select id="tipo_entidad" name="tipo_entidad" required aria-describedby="err-tipo">
+              <option value="" selected>Sel. Tipo Entidad</option>
+              <option value="1">Académica</option>
+              <option value="2">Corporativa</option>
+              <option value="8">Distribuidor (Reseller)</option>
+              <option value="5">Estudiante</option>
+              <option value="6">Gobierno</option>
+              <option value="4">Otros</option>
+              <option value="7">Personal</option>
+            </select>
+            <p class="msg" id="err-tipo">Elige un tipo de entidad.</p>
+          </div>
+          <div class="field">
+            <label for="entidad">Entidad / Empresa *</label>
+            <input type="text" id="entidad" name="entidad" placeholder="Ej.: Universidad Nacional"
+              required minlength="2" maxlength="100" autocomplete="organization"
+              aria-describedby="err-entidad">
+            <p class="msg" id="err-entidad">Mínimo 2 letras.</p>
+          </div>
+        </div>
+
+        <!-- 2. Nombre y apellido -->
+        <div class="row row-2">
+          <div class="field">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej.: María"
+              required minlength="2" maxlength="60" autocomplete="given-name"
+              pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü'’\- ]{2,60}"
+              title="Solo letras y espacios, mínimo 2 caracteres"
+              aria-describedby="err-nombre">
+            <p class="msg" id="err-nombre">Solo letras, mín. 2.</p>
+          </div>
+          <div class="field">
+            <label for="apellido">Apellido *</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Ej.: González"
+              required minlength="2" maxlength="60" autocomplete="family-name"
+              pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü'’\- ]{2,60}"
+              title="Solo letras y espacios, mínimo 2 caracteres"
+              aria-describedby="err-apellido">
+            <p class="msg" id="err-apellido">Solo letras, mín. 2.</p>
+          </div>
+        </div>
+
+        <!-- 3. Ciudad: el original pedía maxlength=5 + un campo oculto ciudadID requerido (fallaba sin explicación). Aquí se corrige. -->
+        <div class="row row-1">
+          <div class="field">
+            <label for="ciudad">Ciudad *</label>
+            <input type="text" id="ciudad" name="ciudad" placeholder="Ej.: Bogotá"
+              required minlength="2" maxlength="60" autocomplete="address-level2"
+              list="lista-ciudades" aria-describedby="err-ciudad">
+            <datalist id="lista-ciudades">
+              <option value="Bogotá"></option>
+              <option value="Medellín"></option>
+              <option value="Cali"></option>
+              <option value="Lima"></option>
+              <option value="Ciudad de México"></option>
+              <option value="Santiago"></option>
+              <option value="Buenos Aires"></option>
+              <option value="São Paulo"></option>
+            </datalist>
+            <p class="msg" id="err-ciudad">Mínimo 2 letras.</p>
+          </div>
+        </div>
+
+        <!-- 4. Teléfono -->
+        <fieldset class="row-tel">
+          <legend>Teléfono de contacto</legend>
+          <div class="field small">
+            <label for="indicativo">Indic.</label>
+            <input type="text" id="indicativo" name="indicativo" placeholder="+57" readonly tabindex="-1" aria-readonly="true" value="+57">
+          </div>
+          <div class="field grow">
+            <label for="celular">Teléfono / Celular / Fone *</label>
+            <input type="tel" id="celular" name="telef_oficina" placeholder="300 123 4567"
+              required minlength="7" maxlength="16" autocomplete="tel"
+              pattern="\+?[0-9][0-9 \-]{6,14}" inputmode="tel"
+              title="Solo números, espacios y guiones, de 7 a 15 dígitos. Sin letras."
+              aria-describedby="err-tel">
+            <p class="msg" id="err-tel">Solo números, 7 a 15 dígitos.</p>
+          </div>
+          <div class="field small">
+            <label for="ext">Ext.</label>
+            <input type="text" id="ext" name="ext" placeholder="101" maxlength="6"
+              pattern="[0-9]{1,6}" inputmode="numeric" title="Solo números, máximo 6 dígitos"
+              aria-describedby="err-ext">
+            <p class="msg" id="err-ext">Solo números.</p>
+          </div>
+        </fieldset>
+
+        <!-- 5. Email: el original usaba type="text". Aquí type="email" para error real. -->
+        <div class="row row-1">
+          <div class="field">
+            <label for="e_mail">Correo electrónico *</label>
+            <input type="email" id="e_mail" name="e_mail" placeholder="nombre@empresa.com"
+              required maxlength="100" autocomplete="email" aria-describedby="err-mail">
+            <p class="msg" id="err-mail">Formato: nombre@empresa.com</p>
+          </div>
+        </div>
+
+        <!-- 6. Marketing -->
+        <fieldset class="marketing">
+          <legend>¿Deseas recibir correos con información de los productos del portafolio de tu interés?</legend>
+          <div class="radios">
+            <label class="radio">
+              <input type="radio" name="emailMarketing" value="0" checked>
+              <span>Sí, gracias</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="emailMarketing" value="1">
+              <span>No, gracias</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn-submit">Registrar Información</button>
+
+        <div class="policy">
+          <a href="https://www.software-shop.com/contactos/general-data-policy" target="_blank" rel="noopener">
+            <span>Conozca nuestras políticas de tratamiento de datos</span> aquí
+          </a>
+        </div>
+
+      </form>
+
+      <p class="nota-academica">
+        Réplica con fines exclusivamente académicos (práctica IHC).
+        Original: software-shop.com/registro — Sin funcionalidad de envío real.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2026 Software Shop — Réplica académica IHC</span>
+      <a href="https://www.software-shop.com/contactos/general-data-policy" target="_blank" rel="noopener">Política de tratamiento de datos</a>
+    </div>
+  </footer>
+
+</body>
+</html>
