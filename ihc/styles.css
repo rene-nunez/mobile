@@ -231,23 +231,6 @@ input[readonly] {
 
 /* Mensajes y botón — versión minimalista */
 
-/* Resumen superior: oculto hasta que el usuario interactúa y algo falla.
-   :user-invalid solo se activa después de tocar el campo (no al cargar). */
-.summary {
-  display: none;
-  background: #fff;
-  border: 1px solid #e5e0ee;
-  border-left: 3px solid var(--error);
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--gris-texto);
-  margin-bottom: 16px;
-}
-.summary strong { font-weight: 600; color: var(--negro); }
-form:has(:user-invalid) .summary { display: block; }
-
 /* Mensaje por campo: una línea pequeña, sin negrita ni iconos */
 .msg {
   display: none;
