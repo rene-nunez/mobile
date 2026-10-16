@@ -251,10 +251,10 @@ form:has(:user-invalid) .summary { display: block; }
 /* Mensaje por campo: una línea pequeña, sin negrita ni iconos */
 .msg {
   display: none;
-  margin: 4px 0 0;
-  font-size: 12px;
-  font-weight: 400;
-  color: #9c2b2b;
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--error);
 }
 .field:has(:user-invalid) .msg { display: block; }
 
