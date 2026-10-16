@@ -94,26 +94,32 @@ body {
 .hero {
   background: linear-gradient(135deg, var(--morado-900) 0%, var(--morado-700) 60%, #8a4fc0 100%);
   color: #fff;
-  text-align: center;
   padding: 48px 20px 90px;
 }
-.hero-inner h1 {
-  margin: 10px 0 4px;
+.hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: left;
+}
+.hero-text h1 {
+  margin: 0 0 4px;
   font-size: 42px;
   font-weight: 800;
   letter-spacing: .5px;
 }
-.hero-inner p {
+.hero-text p {
   margin: 0;
   font-size: 17px;
   opacity: .95;
 }
 .hero-icon {
-  width: 52px;
-  height: 52px;
-  background: rgba(255,255,255,.18);
-  border-radius: 50%;
-  padding: 10px;
+  width: 110px;
+  height: auto;
+  flex-shrink: 0;
 }
 
 /* Tarjeta del formulario */
@@ -335,7 +341,9 @@ form:has(:user-invalid) .summary { display: block; }
 /* Responsive: clave en IHC móvil */
 @media (max-width: 640px) {
   .topnav { display: none; }
-  .hero-inner h1 { font-size: 32px; }
+  .hero-inner { flex-direction: column; text-align: center; gap: 12px; }
+  .hero-text h1 { font-size: 32px; }
+  .hero-icon { width: 84px; }
   .card { padding: 24px 18px; }
   .row-2 { grid-template-columns: 1fr; }
   .row-tel { grid-template-columns: 1fr; }
