@@ -231,7 +231,7 @@ input[readonly] {
 
 /* Mensajes y botón — versión minimalista */
 
-/* Mensaje por campo: una línea pequeña, sin negrita ni iconos */
+/* Mensaje por campo: una línea pequeña con símbolo de error */
 .msg {
   display: none;
   margin: 6px 0 0;
@@ -239,7 +239,21 @@ input[readonly] {
   font-weight: 500;
   color: var(--error);
 }
-.field:has(:user-invalid) .msg { display: block; }
+.msg::before {
+  content: "!";
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--error);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 16px;
+  text-align: center;
+}
+.field:has(:user-invalid) .msg { display: flex; align-items: center; gap: 6px; }
+#err-indicativo { font-size: 11.5px; }
 
 /* Estados visuales minimalistas: solo cambia el borde, sin fondos de color */
 .field:has(:user-invalid) input,

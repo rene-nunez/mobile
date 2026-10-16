@@ -115,8 +115,22 @@
         <fieldset class="row-tel">
           <legend>Teléfono de contacto</legend>
           <div class="field small">
-            <label for="indicativo">Indic.</label>
-            <input type="text" id="indicativo" name="indicativo" placeholder="+57" readonly tabindex="-1" aria-readonly="true" value="+57">
+            <label for="indicativo">Indic. *</label>
+            <select id="indicativo" name="indicativo" required aria-describedby="err-indicativo">
+              <option value="+57" selected>+57</option>
+              <option value="+52">+52</option>
+              <option value="+51">+51</option>
+              <option value="+56">+56</option>
+              <option value="+54">+54</option>
+              <option value="+55">+55</option>
+              <option value="+58">+58</option>
+              <option value="+593">+593</option>
+              <option value="+1">+1</option>
+              <option value="+34">+34</option>
+              <option value="+507">+507</option>
+              <option value="+506">+506</option>
+            </select>
+            <p class="msg" id="err-indicativo">Elige un indicativo.</p>
           </div>
           <div class="field grow">
             <label for="celular">Teléfono / Celular / Fone *</label>
