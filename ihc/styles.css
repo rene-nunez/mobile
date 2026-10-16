@@ -296,21 +296,14 @@ form:has(:user-invalid) .summary { display: block; }
   box-shadow: var(--foco);
 }
 
-.policy { text-align: center; margin-top: 18px; }
+.policy { text-align: center; margin-top: 18px; font-size: 13px; }
 .policy a {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
   color: var(--morado-700);
-  background: #f9f9f9;
-  border: 1px solid #cdcdcd;
-  border-radius: 10px;
-  padding: 6px 12px;
-  text-decoration: none;
-  box-shadow: 2px 4px 8px rgba(0,0,0,.06);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-.policy a span { color: #000; }
-.policy a:hover { border-color: var(--morado-600); }
+.policy a span { color: inherit; }
+.policy a:hover { color: var(--morado-900); }
 
 .nota-academica {
   margin: 20px 0 0;
