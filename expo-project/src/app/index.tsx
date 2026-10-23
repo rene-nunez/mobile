@@ -1,4 +1,4 @@
-import { Text, View, Pressable, TextInput, StyleSheet } from "react-native";
+import { Text, View, Pressable, TextInput, Alert, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg"
 import { useState } from "react";
 
@@ -17,8 +17,52 @@ function ProfileIcon() {
 }
 
 export default function Index() {
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    if(!email.trim() || !password) {
+      Alert.alert("Missing information", "Please fill in both fields.");
+      return;
+    }
+
+    if(!EMAIL_REGEX.test(email.trim())) {
+      Alert.alert("Invalid email", "Please enter a valid email address.");
+      return;
+    };
+
+    if(password.length < 8) {
+      Alert.alert("Password too short", "Use at least 8 characters.");
+      return;
+    };
+
+    if(!/[A-Z]/.test(password)) {
+      Alert.alert("Password requirement", "Add at least one uppercase letter.");
+      return;
+    };
+
+    if(!/[a-z]/.test(password)) {
+      Alert.alert("Password requirement", "Add at least one lowercase letter.");
+      return;
+    };
+
+    if(!/[^A-Za-z0-9]/.test(password)) {
+      Alert.alert("Password requirement", "Add at least one special character.");
+      return;
+    };
+
+    Alert.alert("Success", "Your inputs passed the checks.", [
+      {
+        text: "OK",
+        onPress: () => {
+          setEmail("");
+          setPassword("");
+        },
+      },
+    ]);
+  }
 
   return (
     <View style = {styles.container}>
@@ -27,6 +71,9 @@ export default function Index() {
         <TextInput
           style={styles.inputField}
           placeholder="Enter email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
           value={email}
           onChangeText={setEmail}
         />
@@ -38,7 +85,7 @@ export default function Index() {
           value={password}
           onChangeText={setPassword}
         />
-        <Pressable style={styles.button} onPress={() => {}}>
+        <Pressable style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Log in</Text>
         </Pressable>
       </View>
