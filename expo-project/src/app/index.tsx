@@ -1,10 +1,10 @@
 import { Text, View, Button, TextInput, StyleSheet } from "react-native";
-import { useState } from "react";
 import Svg, { Path } from "react-native-svg"
+import { useState } from "react";
 
 function ProfileIcon() {
   return (
-    <Svg width={64} height={64} viewBox="0 0 24 24" fill="none">
+    <Svg style={styles.icon} width={90} height={90} viewBox="0 0 24 24" fill="none">
       <Path
         d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
         stroke="#000"
@@ -23,9 +23,26 @@ export default function Index() {
   return (
     <View style = {styles.container}>
       <ProfileIcon />
-      <TextInput
-        placeholder="Password"
-      />
+      <View style = {styles.inputContainer}>
+        <TextInput
+          style={styles.inputField}
+          placeholder="Enter email"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          style={styles.inputField}
+          placeholder="Enter password"
+          textContentType="password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
+        <Button
+          title="Log in"
+          onPress={() => {}}
+        />
+      </View>
     </View>
   );
 }
@@ -33,7 +50,23 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fcf9f6",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
+  },
+  icon: {
+    marginBottom: 30
+  },
+  inputContainer: {
+    width: "90%",
+    flexDirection: "column"
+  },
+  inputField: {
+    backgroundColor: "#ffffff",
+    borderWidth: 1,
+    borderColor: "#d7d7d7",
+    padding: 14,
+    fontSize: 18,
+    marginBottom: 15
   }
 });
