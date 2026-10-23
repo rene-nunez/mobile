@@ -1,4 +1,4 @@
-import { Text, View, Button, TextInput, StyleSheet } from "react-native";
+import { Text, View, Pressable, TextInput, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg"
 import { useState } from "react";
 
@@ -38,10 +38,9 @@ export default function Index() {
           value={password}
           onChangeText={setPassword}
         />
-        <Button
-          title="Log in"
-          onPress={() => {}}
-        />
+        <Pressable style={styles.button} onPress={() => {}}>
+          <Text style={styles.buttonText}>Log in</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -68,5 +67,15 @@ const styles = StyleSheet.create({
     padding: 14,
     fontSize: 18,
     marginBottom: 15
+  },
+  button: {
+    backgroundColor: "#333333",
+    padding: 16,
+    alignItems: "center",
+    borderRadius: 8
+  },
+  buttonText: {
+    color: "#ffffff",
+    fontSize: 16
   }
 });
