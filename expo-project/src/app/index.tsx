@@ -25,7 +25,7 @@ export default function Index() {
 
   const handleLogIn = () => {
     if(!email.trim() || !password) {
-      Alert.alert("Missing information", "Please fill in all the fields.");
+      Alert.alert("Missing information", "Please fill in both fields.");
       return;
     }
 
