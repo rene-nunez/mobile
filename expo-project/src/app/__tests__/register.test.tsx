@@ -49,7 +49,7 @@ async function pressSignUp(screen: Screen) {
   await fireEvent.press(screen.getByText("Sign up"));
 }
 
-describe("Register (Sign Up Screen)", () => {
+describe("Register (Signup Screen)", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
