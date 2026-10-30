@@ -1,7 +1,7 @@
 import { Text, View, Pressable, TextInput, Alert, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { useState } from "react";
-import { useRouter } from "expo-router";
+import { Link } from "expo-router";
 
 function ProfileIcon() {
   return (
@@ -17,22 +17,15 @@ function ProfileIcon() {
   );
 }
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function Index() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const onRegister = () => {
-    router.push({
-      pathname: "/register",
-    });
-  }
-
-  const handleLogin = () => {
+  const handleLogIn = () => {
     if(!email.trim() || !password) {
-      Alert.alert("Missing information", "Please fill in both fields.");
+      Alert.alert("Missing information", "Please fill in all the fields.");
       return;
     }
 
@@ -41,27 +34,7 @@ export default function Index() {
       return;
     }
 
-    if(password.length < 8) {
-      Alert.alert("Password too short", "Use at least 8 characters.");
-      return;
-    }
-
-    if(!/[A-Z]/.test(password)) {
-      Alert.alert("Password requirement", "Add at least one uppercase letter.");
-      return;
-    }
-
-    if(!/[a-z]/.test(password)) {
-      Alert.alert("Password requirement", "Add at least one lowercase letter.");
-      return;
-    }
-
-    if(!/[^A-Za-z0-9]/.test(password)) {
-      Alert.alert("Password requirement", "Add at least one special character.");
-      return;
-    }
-
-    Alert.alert("Success", "Your inputs passed the checks.", [
+    Alert.alert("Success", "You’re logged in.", [
       {
         text: "OK",
         onPress: () => {
@@ -85,20 +58,23 @@ export default function Index() {
           value={email}
           onChangeText={setEmail}
         />
+
         <TextInput
           style={styles.inputField}
           placeholder="Enter password"
-          textContentType="password"
           secureTextEntry
           value={password}
           onChangeText={setPassword}
         />
-        <Pressable style={styles.button} onPress={handleLogin}>
+
+        <Pressable style={styles.button} onPress={handleLogIn}>
           <Text style={styles.buttonText}>Log in</Text>
         </Pressable>
-        <Pressable style={styles.button} onPress={onRegister}>
-          <Text style={styles.buttonText}>Sign up</Text>
-        </Pressable>
+
+        <View style={styles.signupContainer}>
+          <Text style={styles.signupText}>New here? </Text>
+          <Link href="/register" style={styles.signupLink}>Sign up</Link>
+        </View>
       </View>
     </View>
   );
@@ -109,33 +85,48 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fcf9f6",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   icon: {
-    marginBottom: 20
+    marginBottom: 20,
   },
   inputContainer: {
     width: "90%",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   inputField: {
     backgroundColor: "#ffffff",
     borderWidth: 1,
-    borderRadius: 4,
-    borderColor: "#d7d7d7",
+    borderRadius: 3,
+    borderColor: "#c2c2c2",
     padding: 14,
     fontSize: 18,
-    marginBottom: 14
+    marginBottom: 14,
   },
   button: {
     backgroundColor: "#8f4a4e",
     padding: 16,
     alignItems: "center",
-    borderRadius: 8,
-    marginBottom: 7
+    borderRadius: 5,
+    marginBottom: 14,
   },
   buttonText: {
     color: "#ffffff",
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
+  signupContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  signupText: {
+    color: "#3b3737",
+    fontSize: 16,
+  },
+  signupLink: {
+    color: "#8f4a4e",
+    fontSize: 16,
+    fontWeight: "600",
+    textDecorationLine: "underline",
+  },
 });
