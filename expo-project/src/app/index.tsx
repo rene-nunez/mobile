@@ -1,7 +1,7 @@
 import { Text, View, Pressable, TextInput, Alert, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { useState } from "react";
-import { Link } from "expo-router";
+import { useRouter, Link } from "expo-router";
 
 function ProfileIcon() {
   return (
@@ -23,6 +23,12 @@ export default function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const router = useRouter();
+
+  const handlePress = () => {
+    router.push("/home");
+  };
+
   const handleLogIn = () => {
     if(!email.trim() || !password) {
       Alert.alert("Missing information", "Please fill in both fields.");
@@ -40,6 +46,7 @@ export default function Index() {
         onPress: () => {
           setEmail("");
           setPassword("");
+          handlePress();
         },
       },
     ]);
