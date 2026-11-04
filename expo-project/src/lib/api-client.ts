@@ -22,10 +22,14 @@ export function getMusicData() {
   .then(response => response.json())
   .then(data => data.topartists.artist)
   .then(artists => artists.map((artist: ArtistResource) => {
+    const bestImage = [...artist.image]
+      .reverse()
+      .find(img => img['#text'])
+
     return {
       id: artist.mbid,
       name: artist.name,
-      image: artist.image[0]['#text']
+      image: bestImage?.['#text'] ?? ''
     }
   }))
 }
