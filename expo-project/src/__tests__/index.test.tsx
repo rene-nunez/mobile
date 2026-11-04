@@ -1,7 +1,7 @@
 import * as React from "react";
 import { fireEvent, render } from "@testing-library/react-native";
 import { Alert } from "react-native";
-import Index from "../index";
+import Index from "../app/index";
 
 jest.spyOn(Alert, "alert");
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { fireEvent, render } from "@testing-library/react-native";
 import { Alert } from "react-native";
-import Register from "../register";
+import Register from "../app/register";
 
 jest.spyOn(Alert, "alert");
 
