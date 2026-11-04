@@ -13,7 +13,12 @@ export default function Detail() {
       {}
 
       {image ? (
-        <Image source={{ uri: image }} style={styles.image} contentFit="cover" />
+        <Image
+          source={{ uri: image }}
+          style={styles.image}
+          contentFit="cover"
+          testID="detail-image"
+        />
       ) : null}
 
       <Text style={styles.name}>{name ?? "Unknown artist"}</Text>

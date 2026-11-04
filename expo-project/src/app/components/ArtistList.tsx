@@ -7,8 +7,8 @@ import { useRouter } from "expo-router";
 export default function ArtistList({ artists }: { artists: Artist[] }) {
   const router = useRouter();
 
-  const handlePress = (artist:any) => router.push({
-    pathname: "../detail",
+  const handlePress = (artist: Artist) => router.push({
+    pathname: "/detail",
     params: { id: artist.id, name: artist.name, image: artist.image },
   });
 
